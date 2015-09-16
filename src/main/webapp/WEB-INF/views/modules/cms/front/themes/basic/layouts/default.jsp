@@ -49,9 +49,14 @@
                     <!--[if lte IE 6]><script type="text/javascript">$('#themeSwitch').hide();</script><![endif]-->
                 </li>
             </ul>
-            <form class="navbar-form pull-right" action="${ctx}/search" method="get">
+            <form class="navbar-form navbar-left" action="${ctx}/search" method="get">
                 <input type="text" name="q" maxlength="20" class="form-control" placeholder="全站搜索..." value="${q}">
             </form>
+            <ul class="nav navbar-nav navbar-right" id="userbar">
+
+                <li class="first"><a href="/account/register">注册</a></li><li class="last"><a href="/account/login">登录</a></li>
+
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>

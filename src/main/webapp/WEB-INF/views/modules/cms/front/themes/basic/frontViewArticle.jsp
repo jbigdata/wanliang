@@ -73,23 +73,30 @@
                <div class="tags">
 
                </div>
+
+			<div class="content">
                 <c:if test="${not empty article.description}"><div>摘要：${article.description}</div></c:if>
-			<div>${article.articleData.content}</div>
+			${article.articleData.content}</div>
   	       </div>
+             <nav class="content">
+                 <ul class="pager">
+                     <c:forEach items="${relationList}" var="relation" varStatus="status">
+                         <c:if test="${status.count==1}">
+                             <li><span class="glyphicon glyphicon-chevron-left"></span> 上一篇：<a href="${ctx}/view-${relation[0]}-${relation[1]}${urlSuffix}">${fns:abbr(relation[2],30)}</a></li>
+                         </c:if>
+                         <c:if test="${status.count==2}">
+                              <li> <a href="${ctx}/view-${relation[0]}-${relation[1]}${urlSuffix}">${fns:abbr(relation[2],30)}</a> 下一篇：<span class="glyphicon glyphicon-chevron-right"></span></li>
+                         </c:if>
+                         <li style="float:left;width:230px;"></li>
+                     </c:forEach>
+                 </ul>
+             </nav>
   	     </div>
 	     <div class="row">
 			<div id="comment" class="hide span10">
 				正在加载评论...
 			</div>
 	     </div>
-	     <div class="row">
-	       <div class="span10">
-			<h5>相关文章</h5>
-			<ol><c:forEach items="${relationList}" var="relation">
-				<li style="float:left;width:230px;"><a href="${ctx}/view-${relation[0]}-${relation[1]}${urlSuffix}">${fns:abbr(relation[2],30)}</a></li>
-			</c:forEach></ol>
-	  	  </div>
-  	    </div>
   	  </div>
    </div>
    </div>
