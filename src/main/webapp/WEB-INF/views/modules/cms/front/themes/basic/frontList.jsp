@@ -37,7 +37,7 @@
 
            <c:if test="${category.module eq 'article'}">
 
-			 <c:forEach items="${page.list}" var="article">
+			 <c:forEach items="${page.list}" var="article" varStatus="status">
                 <article class="article box_white">
                     <div class="row">
 
